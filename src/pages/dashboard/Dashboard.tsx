@@ -27,88 +27,89 @@ function Dashboard() {
     ];
 
     return (
-        <div className="dashboard-layout">
-            <Sidebar />
-            
-            <aside className="dashboard-main">
-                <header className="dashboard-header">
-                    <div className="header-text">
-                        <h1>Backup Operations</h1>
-                        <p>System Status: <span style={{color: '#10b981', fontWeight: 'bold'}}>Operational</span></p>
-                    </div>
-                    <div className="header-actions">
-                        <button className="btn-secondary">Configure Agents</button>
-                        <button className="btn-primary">Run Manual Backup</button>
-                    </div>
-                </header>
+            <div className="dashboard-layout">
+                <Sidebar />
 
-                <section className="dashboard-content">
-                    {/* Stats Row */}
-                    <div className="stats-grid">
-                        {stats.map((stat, index) => (
-                            <div key={index} className="stat-card">
-                                <h3>{stat.title}</h3>
-                                <div className="stat-value">{stat.value}</div>
-                                <span className={`stat-subtext ${stat.type}`}>
-                                    {stat.subtext}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className="content-split">
-                        {/* Left Column: Main Backup Table */}
-                        <div className="card table-card">
-                            <div className="card-header">
-                                <h2>Recent Backups</h2>
-                                <a href="#" className="view-all">View Logs</a>
-                            </div>
-                            <table className="data-table">
-                                <thead>
-                                    <tr>
-                                        <th>DateTime</th>
-                                        <th>Details</th>
-                                        <th>Size</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {backupHistory.map((job) => (
-                                        <tr key={job.id}>
-                                            <td className="text-muted">{job.datetime}</td>
-                                            <td className="font-medium">{job.details}</td>
-                                            <td>{job.size}</td>
-                                            <td>
-                                                <span className={`status-badge ${job.status.toLowerCase()}`}>
-                                                    {job.status}
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+                <aside className="dashboard-main">
+                    <header className="dashboard-header">
+                        <div className="header-text">
+                            <h1>Backup Operations</h1>
+                            <p>System Status: <span /* style={{ color: '#10b981', fontWeight: 'bold' }} */>Operational</span></p>
                         </div>
+                        <div className="header-actions">
+                            <button className="btn-secondary">Configure Agents</button>
+                            <button className="btn-primary">Run Manual Backup</button>
+                        </div>
+                    </header>
 
-                        {/* Right Column: Alerts & Quick Actions */}
-                        <div className="side-panel">
-                            <div className="card alerts-card">
-                                <div className="card-header">
-                                    <h2>System Alerts</h2>
+                    <section className="dashboard-content">
+                        {/* Stats Row */}
+                        <div className="stats-grid">
+                            {stats.map((stat, index) => (
+                                <div key={index} className="stat-card">
+                                    <h3>{stat.title}</h3>
+                                    <div className="stat-value">{stat.value}</div>
+                                    <span className={`stat-subtext ${stat.type}`}>
+                                        {stat.subtext}
+                                    </span>
                                 </div>
-                                <ul className="alerts-list">
-                                    {systemAlerts.map((alert) => (
-                                        <li key={alert.id} className={`alert-item ${alert.type}`}>
-                                            <span className="alert-time">{alert.time}</span>
-                                            <span className="alert-msg">{alert.message}</span>
-                                        </li>
-                                    ))}
-                                </ul>
+                            ))}
+                        </div>
+
+                        <div className="content-split">
+                            {/* Left Column: Main Backup Table */}
+                            <div className="card table-card">
+                                <div className="card-header">
+                                    <h2>Recent Backups</h2>
+                                    <a href="#" className="view-all">View Logs</a>
+                                </div>
+                                <table className="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>DateTime</th>
+                                            <th>Details</th>
+                                            <th>Size</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {backupHistory.map((job) => (
+                                            <tr key={job.id}>
+                                                <td className="text-muted">{job.datetime}</td>
+                                                <td className="font-medium">{job.details}</td>
+                                                <td>{job.size}</td>
+                                                <td>
+                                                    <span className={`status-badge ${job.status.toLowerCase()}`}>
+                                                        {job.status}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            {/* Right Column: Alerts & Quick Actions */}
+                            <div className="side-panel">
+                                <div className="card alerts-card">
+                                    <div className="card-header">
+                                        <h2>System Alerts</h2>
+                                    </div>
+                                    <ul className="alerts-list">
+                                        {systemAlerts.map((alert) => (
+                                            <li key={alert.id} className={`alert-item ${alert.type}`}>
+                                                <span className="alert-time">{alert.time}</span>
+                                                <span className="alert-msg">{alert.message}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-            </aside>
-        </div>
+                    </section>
+                </aside>
+            </div>
+
     );
 }
 
