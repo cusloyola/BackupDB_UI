@@ -1,6 +1,5 @@
-import { useState } from 'react';
-import Sidebar from './Sidebar';
-import '../styles/Dashboard.css';
+import Sidebar from '../../components/Sidebar';
+import '../../styles/Dashboard.css';
 
 function Dashboard() {
     // 1. Top Level Stats

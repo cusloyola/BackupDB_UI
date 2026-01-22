@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
-import '../styles/Login.css';
-import logo from '../assets/wallemrectangle.png';
+import '../../styles/Login.css';
+import logo from '../../assets/wallemrectangle.png';
 
 function Login() {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
